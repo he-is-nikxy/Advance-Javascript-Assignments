@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOMOBILE INHERITANCE MODEL</title>
+</head>
+<body>
+    <h1>AUTOMOBILE INHERITANCE MODEL</h1>
+    
+</body>
+<script>
+
+    
+
+
+// Problem Statement :-
+// You have been appointed as senior developer in Tata’s R&D department. The engineers there are lazy, they don’t want to do everything from scratch whenever they create a new model. They expect you to help them create an inheritance model for the automobiles.
+
+// Description :-
+// Implement an inheritance model for four wheeler automobiles.
+// Implement using both object.create() and constructor functions().
+// Think of properties of what can be inherited.
+
+
+
+
+
+function vehicle(model, powerWindow, powerSteering) {
+        
+        this.model = model;
+        this.powerWindow = powerWindow;
+        this.powerSteering = powerSteering;
+
+        this.type = function() {
+            return "Four Wheeler";
+        };
+
+    }
+
+    let car1 = new vehicle("Nexon", true, true);
+
+    car1.colour = "White";
+    car1.transmission = "Automatic";
+
+    console.log(car1);
+
+
+
+    let car2 = new vehicle("Nexon", false, false);
+
+    car2.colour = "Black";
+    car2.transmission = "Manual";
+
+    console.log(car2);
+
+
+    let car3 = new vehicle("Nexon", false, true);
+
+    car3.colour = "Red";
+    car3.transmission = "Hybrid";
+
+    console.log(car3);
+
+
+
+</script>
+</html>
