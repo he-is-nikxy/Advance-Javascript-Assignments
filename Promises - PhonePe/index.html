@@ -1,12 +1,113 @@
+
+
+<!-- Mimic the payment system of phonePe using promises.
+The payment can be rejected or accepted
+On success show the same UI as shown on phonePe app.
+On Failure also show the same UI as shown on phonePe app.
+During the processing state show the Processing UI as shown on phonePe.
+Refer your phonePe app(if you have) for UI, or watch some video on youTube. -->
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PhonePe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #payment-status {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+        }
+        input {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            font-size: large;
+        }
+        #submit {
+            cursor: pointer;
+            width: 120px;
+            height: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: white;
+            background-color: rgb(121, 0, 219);
+            border-radius: 10px;
+            border: none;
+        }
+        #submit:hover {
+            background-color: rgb(58, 0, 128);
+        }
+    </style>
 </head>
 <body>
-    
+    <img src="https://download.logo.wine/logo/PhonePe/PhonePe-Logo.wine.png" alt="">
+    <h1>Payment System</h1>
+    <div>
+        <input type="number" placeholder="Enter Amount"> <br><br>
+        <button id="submit">Make Payment</button>
+    </div>
+    <div id="payment-status"></div>
 </body>
+<script>
+    function makePayment(amount) {
+            return new Promise((resolve, reject) => {
+                
+                setTimeout(() => {
+                    const isPaymentAccepted = Math.random() < 0.5; 
+                    
+                    if (isPaymentAccepted) {
+                        resolve('Payment accepted');
+                    } else {
+                        reject('Payment rejected');
+                    }
+                }, 2000); 
+            });
+        }
+
+        
+        function showSuccessUI() {
+            document.getElementById('payment-status').innerHTML = 'Payment Successful';
+            
+        }
+
+        
+        function showFailureUI() {
+            document.getElementById('payment-status').innerHTML = 'Payment Failed';
+            
+        }
+
+        const inp = document.querySelector("input").value;
+        const sub = document.querySelector("#submit");
+
+        sub.addEventListener("click", function(inp) {
+            document.getElementById('payment-status').innerHTML = "Processing...";
+            makePayment(inp)
+            .then((result) => {
+                
+                showSuccessUI();
+                console.log(result);
+            })
+            .catch((error) => {
+                
+                showFailureUI();
+                console.error(error);
+            });
+        })
+</script>
 </html>
