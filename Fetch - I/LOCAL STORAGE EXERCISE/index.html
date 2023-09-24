@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL STORAGE EXERCISE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <button id="retrieveData">Retrieve Data</button>
+
+    <div id="displayData">
+        <h2>Stored Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="dataRows">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
