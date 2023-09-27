@@ -1,0 +1,96 @@
+
+<!-- 
+Create a counter using ES6 classes.
+Initially:-
+The count will increment at interval of 1 sec.
+Provide a start and stop button (Recommended to do it using same button);
+If user press increment or decrement button
+Create another functionality where counter will increment and decrement on button click.
+Provide two buttons for increment and decrement.
+On clicking of any of these buttons the automatic counter will stop.
+And it will work as manual -->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter</title>
+</head>
+<body>
+  <h1>Counter</h1>
+  <p id="count">0</p>
+  <button id="toggleBtn">Start</button>
+  <button id="incrementBtn">Increment</button>
+  <button id="decrementBtn">Decrement</button>
+
+  <script>
+    class Counter {
+      constructor() {
+        this.count = 0;
+        this.intervalId = null;
+        this.isRunning = false;
+        
+        this.toggleBtn = document.getElementById('toggleBtn');
+        this.incrementBtn = document.getElementById('incrementBtn');
+        this.decrementBtn = document.getElementById('decrementBtn');
+        
+        this.toggleBtn.addEventListener('click', this.toggle.bind(this));
+        this.incrementBtn.addEventListener('click', this.increment.bind(this));
+        this.decrementBtn.addEventListener('click', this.decrement.bind(this));
+      }
+      
+      toggle() {
+        if (!this.isRunning) {
+          this.start();
+        } else {
+          this.stop();
+        }
+      }
+      
+      start() {
+        this.isRunning = true;
+        this.toggleBtn.textContent = 'Stop';
+        this.intervalId = setInterval(() => {
+          this.count++;
+          this.updateDisplay();
+        }, 1000);
+      }
+      
+      stop() {
+        this.isRunning = false;
+        this.toggleBtn.textContent = 'Start';
+        clearInterval(this.intervalId);
+      }
+      
+      increment() {
+        if (!this.isRunning) {
+          this.count++;
+          this.updateDisplay();
+        }
+      }
+      
+      decrement() {
+        if (!this.isRunning) {
+          this.count--;
+          this.updateDisplay();
+        }
+      }
+      
+      updateDisplay() {
+        document.getElementById('count').textContent = this.count;
+      }
+    }
+    
+    const counter = new Counter();
+  </script>
+</body>
+</html>
