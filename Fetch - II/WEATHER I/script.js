@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.getElementById("searchButton");
     searchButton.addEventListener("click", () => {
@@ -10,14 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchWeatherData(city) {
-    // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
-    const apiKey = 'YOUR_API_KEY';
+    
+    const apiKey = '0e9a9504e0366bcf6aa8bca4b7dbd599';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            // Extract weather details and display them in the weatherInfo div
+            
             const weatherInfo = document.getElementById("weatherInfo");
             weatherInfo.innerHTML = `
                 <h2>${data.name}, ${data.sys.country}</h2>
@@ -37,5 +38,5 @@ function fetchWeatherData(city) {
 
 function displayMap(city) {
     const mapContainer = document.getElementById("mapContainer");
-    mapContainer.innerHTML = `<iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${city}" allowfullscreen></iframe>`;
+    mapContainer.innerHTML = `<iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=${city}&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>`;
 }
