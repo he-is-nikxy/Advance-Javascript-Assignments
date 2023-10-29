@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Forecast</title>
+    <style>
+      .forecast-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        display: inline-block;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>5-Day Weather Forecast</h1>
+    <div>
+      <label for="city-input">Enter City:</label>
+      <input type="text" id="city-input" placeholder="Enter city name" />
+      <button id="search-button">Search</button>
+    </div>
+    <div class="forecast-container" id="forecast-container"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
